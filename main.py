@@ -75,7 +75,7 @@ async def on_message(message):
                     if(status):
                       await message.channel.send("Correct Here is Your flag: "+message_text)
                     else:
-                      await messsage.channel.send("Incorrect Here is YOur flag"+message_text)
+                      await message.channel.send("Incorrect Here is YOur flag"+message_text)
         except aiohttp.ClientError as e:
               await message.channel.send(f"Error connecting to API: `{str(e)}`")
           
