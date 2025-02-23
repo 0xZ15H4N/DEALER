@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 import aiohttp
 import json
-url = "https://9959-116-75-221-16.ngrok-free.app" 
+url = "https://b51a-116-75-221-16.ngrok-free.app" 
 
 # def get_login_credentials():
 #     with open('login_credentials.txt') as f:
@@ -53,7 +53,7 @@ async def on_message(message):
     #     f.writelines(f"{username} {password}\n")
     # except:
     #   await message.channel.send("Enter a Valid Username Or Password")
-  if message.content.startswith("Flag"):
+  if message.content.startswith("$Flag"):
     
     flag = message.content.split("$Flag", 1)[-1].strip()
     if(flag=="" or flag==" ") :
@@ -70,7 +70,8 @@ async def on_message(message):
                 if "application/json" in content_type:  
                     response_json = await response.json()  # Parse JSON safely
                     print(response_json)
-                    status = response_json.get("Correct", "Unknown")
+                    status = response_json.get("correct", "Unknown")
+                    print(status)
                     message_text = response_json.get("flag", "No message provided")
                     if(status):
                       await message.channel.send("Correct Here is Your flag: "+message_text)
